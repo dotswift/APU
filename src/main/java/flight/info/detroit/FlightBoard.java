@@ -6,6 +6,15 @@ public class FlightBoard implements Comparable <FlightBoard>{
 	private String flightNumber;
 	private String departureAirportFsCode;
 	private DepartureDate departureDate;
+	private String departureTime;
+
+	public String getDepartureTime() {
+		return departureTime;
+	}
+
+	public void setDepartureTime(String departureTime) {
+		this.departureTime = departureTime;
+	}
 
 	public DepartureDate getDepartureDate() {
 		return departureDate;

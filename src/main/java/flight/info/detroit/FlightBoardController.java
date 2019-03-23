@@ -17,11 +17,10 @@ public class FlightBoardController {
 	public ModelAndView showFlightBoard() {
 		
 		ArrayList<FlightBoard> flightStatus = flightStatsApiServices.searchFlightCode();
-		ModelAndView mav = new ModelAndView("flightboard", "flight",flightStatus );
 		
+		ModelAndView mav = new ModelAndView("flightboard", "flight", flightStatus);
 		
 		mav.addObject("airportInfo", flightStatsApiServices.searchAirportCode());
-		
 		return mav;
 	}
 
