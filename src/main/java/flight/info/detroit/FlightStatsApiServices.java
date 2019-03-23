@@ -70,7 +70,7 @@ public class FlightStatsApiServices {
 		return flightStatus.get(0);
 	}
 
-	public ArrayList<FlightTracks> searchFlightCode() {
+	public ArrayList<FlightBoard> searchFlightCode() {
 		// puts todays date in the URL as string
 		String today = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
 

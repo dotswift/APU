@@ -1,6 +1,6 @@
 package flight.info.detroit;
 
-public class FlightTracks {
+public class FlightBoard {
 
 	private String carrierFsCode;
 	private String flightNumber;

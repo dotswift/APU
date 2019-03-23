@@ -46,7 +46,7 @@
 					<input style="width: 250px;" name="flightcode"
 						placeholder="Flight Number Ex: DL2882 " value="${flightNum}" size="10"
 						min="4" maxlength="6" required pattern="[A-Za-z0-9]{2}\d{2,4}" /><br>
-	<!-- 				<a href="flightboard">Flight Board</a> -->
+	<a href="findflight">Flight Board</a> 
 
 				</div>
 				<br>

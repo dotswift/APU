@@ -16,8 +16,8 @@ public class TestController {
 	@RequestMapping("findflight")
 	public ModelAndView testingStuff() {
 		
-		ArrayList<FlightTracks> ft = flightStatsApiServices.searchFlightCode();
-		ModelAndView mav = new ModelAndView("seachcode", "listofflights",ft );
+		ArrayList<FlightBoard> ft = flightStatsApiServices.searchFlightCode();
+		ModelAndView mav = new ModelAndView("flightboard", "listofflights",ft );
 		
 		
 		mav.addObject("airportInfo", flightStatsApiServices.searchAirportCode());

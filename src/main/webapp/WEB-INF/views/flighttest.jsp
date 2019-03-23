@@ -9,7 +9,7 @@
 </head>
 <body>
 <c:forEach var="flightstatus" items="${flightstatus}">
-	<div>
+
 	<h3>${flightstatus.flightId} - ${flightstatus.carrierFsCode}-${flightstatus.flightNumber}</h3>
 	
 	Expected Arrival: ${flightstatus.operationalTimes.publishedArrival.dateLocal}<br>
@@ -18,15 +18,15 @@
 	Arrival Terminal: ${flightstatus.airportResources.arrivalTerminal}<br>
 	Arrival Gate: ${flightstatus.airportResources.arrivalGate}
 	
+	</c:forEach>
 	
-	
-	</div>
 
 
 
 
 
-</c:forEach>
+
+
 
 </body>
 </html>
