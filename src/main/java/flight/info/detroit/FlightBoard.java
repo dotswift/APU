@@ -1,6 +1,6 @@
 package flight.info.detroit;
 
-public class FlightBoard {
+public class FlightBoard implements Comparable <FlightBoard>{
 
 	private String carrierFsCode;
 	private String flightNumber;
@@ -43,6 +43,12 @@ public class FlightBoard {
 	public String toString() {
 		return "FlightTracks [carrierFsCode=" + carrierFsCode + ", flightNumber=" + flightNumber
 				+ ", departureAirportFsCode=" + departureAirportFsCode + "]";
+	}
+
+	@Override
+	public int compareTo(FlightBoard o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

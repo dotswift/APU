@@ -20,29 +20,22 @@
 
 				<th>Select A Flight</th>
 				<th >Departure Time</th>
-				<th >Departure Airport</th>
+				<th >Origin</th>
 				<th >Airline </th>
 				<th >Flight Number</th>
 
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="flight" items="${listofflights }">
+			<c:forEach var="flight" items="${ flight }">
 				<tr>
-					<td><a class="btn btn-primary"
-						href="flightcode?carr=${flight.carrierFsCode }&num=${flight.flightNumber }">Select</a></td>
-					<td class="text-center">${flight.departureDate.dateLocal}</td>
-					<td class="text-center">${flight.departureAirportFsCode }</td>
-					<td class="text-center">${flight.carrierFsCode }</td>
-					<td class="text-center">${flight.flightNumber }</td>
-			
-		
-						</c:forEach>
-					
+					<td><a class="btn btn-primary" href="flightcode?carr=${flight.carrierFsCode }&num=${flight.flightNumber }">Select</a></td>
+					<td>${flight.departureDate.dateLocal}</td>
+					<td>${flight.departureAirportFsCode }</td>
+					<td>${flight.carrierFsCode }</td>
+					<td>${flight.flightNumber }</td>
+				
+						</c:forEach>					
 	</table>
-
-
-
-
 </body>
 </html>

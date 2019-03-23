@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class TestController {
+public class FlightBoardController {
 	@Autowired
 	private FlightStatsApiServices flightStatsApiServices;
 
 	@RequestMapping("findflight")
-	public ModelAndView testingStuff() {
+	public ModelAndView showFlightBoard() {
 		
-		ArrayList<FlightBoard> ft = flightStatsApiServices.searchFlightCode();
-		ModelAndView mav = new ModelAndView("flightboard", "listofflights",ft );
+		ArrayList<FlightBoard> flightStatus = flightStatsApiServices.searchFlightCode();
+		ModelAndView mav = new ModelAndView("flightboard", "flight",flightStatus );
 		
 		
 		mav.addObject("airportInfo", flightStatsApiServices.searchAirportCode());
