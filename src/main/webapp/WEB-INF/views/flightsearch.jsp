@@ -44,28 +44,39 @@
 					 
 				<div class="form-group">
 					<input class="form-control input-sm" name="flightcode"
-						placeholder="Flight Number Ex: DL2882 " value="${flightNum}" size="45"
-						min="4" maxlength="6" required pattern="[A-Za-z0-9]{2}\d{2,4}" /><br>
+						placeholder="Flight Number (DL2882)" value="${flightNum}" size="45"
+						min="4" maxlength="6" required pattern="[A-Za-z0-9]{2}\d{2,4}" />
+						
+						
+						<br>
 <!-- 	<a href="findflight">Flight Board</a>  -->
 
 				</div>
 				<br>
-			
-					<input class="form-control input-sm" type="text" name="origin" placeholder="Address Ex: 1538 Centre St, Detroit, MI" style="text-align: center:"
-						size="45" required><br>
+			<center>
+					<input class="form-control input-sm" type="text" name="origin" placeholder="Pickup Origin Address" style="text-align: center:"
+						size="45" required>
+						<br>
+						<br>
+		
+		
+		<medium id="emailHelp" class="form-text text-muted">Checked bags tend to delay airport pickups.</medium>
 						<div class="custom-control custom-switch">
 
 
-<input type="checkbox" name="bags" value="true" class="custom-control-input" id="customSwitch1" style="text-align:left;"> </input>
-<label class="custom-control-label" for="customSwitch1"><b style="color:#007bff;font-size: 120%; vertical-align: text-bottom;">Checked Bags?</b></label>
+
+<input type="checkbox" name="bags" value="true" class="custom-control-input" id="customSwitch1" > 
+
+<label class="custom-control-label" for="customSwitch1"><b style="color:#ffffff; font-size: 120%;">Checked Bags?</b></label>
 
 
 			
 				
 				</div>
 			<br>
-					<input class="btn btn-primary" type="submit" value="Calculate Pickup">
+					<input class="btn btn-secondary btn-lg" type="submit" value="Calculate Pickup">
 		</form>
+		</center>
 	</div>
 	
 

@@ -21,9 +21,9 @@
 	<a href="/"><img src="/images/apu-logo.png" width="70" ></a>
 	
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-item" href="/flightlist">My Pickups</a>
+
 	</nav>
-    
-     </nav>
+    		<a class="navbar-item btn btn-secondary btn-sm" href="/flightlist">My Pickups</a>
+  
 </header>
 </html>
