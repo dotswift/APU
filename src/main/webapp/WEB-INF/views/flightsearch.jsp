@@ -5,8 +5,7 @@
 <html>
 <head>
 <style>
-
-</style> 
+</style>
 
 <title>APU | Search</title>
 
@@ -16,72 +15,84 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 
-<!-- <link href="../../css/editor.css" rel="stylesheet">  -->
-
-<!-- Custom styles for this template -->
-<link  rel="stylesheet" href="/style.css"> 
-<!-- <link rel="stylesheet" href="/progressbarstyle.css" /> -->
+<link rel="stylesheet" href="/style.css">
 
 </head>
 
 
 <body id="bodytest">
 
-<%@include file="partials/header.jsp"%>
+	<%@include file="partials/header.jsp"%>
 
 
 
 	<div class="container">
 
-		<form action="/flightresults" style="text-align:center;">
+		<form action="/flightresults" style="text-align: center;">
 			<br>
-			<h4 class="display-4" style="text-size: 12px; text-align: center; color:#ffffff;">
-				
-					 Airport Pickup Utility(APU)</h4>
-					 <h6 style="color:#ffffff;"><b>Your Pathway to DTW</b></h6>
-					<br><br>
-					 
-					 
-				<div class="form-group">
-					<input class="form-control input-sm" name="flightcode"
-						placeholder="Flight Number (DL2882)" value="${flightNum}" size="45"
-						min="4" maxlength="6" required pattern="[A-Za-z0-9]{2}\d{2,4}" />
-						
-						
-						<br>
-						
-						
-	<a href="findflight" class="btn btn-secondary btn-lg" >Browse Flights</a> 
+			<h4 class="display-3"
+				style="text-size: 6px; text-align: center; color: #ffffff;">
 
-				</div>
-				<br>
-			<center>
-					<input class="form-control input-sm" type="text" name="origin" placeholder="Pickup Origin Address" style="text-align: center:"
-						size="45" required>
-						<br>
-						<br>
-		
-		
-		<medium id="emailHelp" class="form-text text-muted">Checked bags tend to delay airport pickups.</medium>
-						<div class="custom-control custom-switch">
-
-
-
-<input type="checkbox" name="bags" value="true" class="custom-control-input" id="customSwitch1" > 
-
-<label class="custom-control-label" for="customSwitch1"><b style="color:#ffffff; font-size: 120%;">Checked Bags?</b></label>
-
-
+				Airport Pickup Utility(APU)</h4>
+			<h6 style="color: #ffffff;">
+				<b>Your final approach to the perfect pickup at DTW.</b>
+			</h6>
+			<br>
+		<center>
+				<medium id="emailHelp" class="form-text text-muted">Enter a flight number, or browse for a flight.</medium>
+			<br>
+			<table width = 500px style="text-align: right;">
+				<tr>
+					<td>
 			
+							<input class="form-control col-form-label-lg" name="flightcode"
+								placeholder="Ex. DL2882" value="${flightNum}"
+								size="45" min="4" maxlength="6" required
+								pattern="[A-Za-z0-9]{2}\d{2,4}" style="width: 200px;"/>
+					</td>
+
+
+					<td><a href="findflight" class="btn btn-secondary btn-lg">Browse
+							Flights</a></td>
+				</tr>
 				
-				</div>
-			<br>
-					<input class="btn btn-secondary btn-lg" type="submit" value="Calculate Pickup">
+				</table>
+	
+			
+<br>
+		<medium id="emailHelp" class="form-text text-muted">Where does your pickup originate from? </medium>
+		<br>
+		
+		
+					<input class="form-control col-form-label-lg" type="text"
+							name="origin" placeholder="Pickup Origin Address"
+							style="width: 500px;" size=5" required></td>
+			
+
+			<br> 
+		</center>	
+
+			<medium id="emailHelp" class="form-text text-muted">Indicate if your passenger is checking bags.</medium>
+			<div class="custom-control custom-switch">
+
+
+
+				<input type="checkbox" name="bags" value="true"
+					class="custom-control-input" id="customSwitch1"> <label
+					class="custom-control-label" for="customSwitch1"><b
+					style="color: #ffffff; font-size: 120%;">Checked Bags?</b></label>
+
+
+
+
+			</div>
+			<br> <input class="btn btn-secondary btn-lg" type="submit"
+				value="Calculate Pickup">
 		</form>
 		</center>
 	</div>
-	
 
-	
+
+
 </body>
 </html>
