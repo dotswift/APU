@@ -1,6 +1,7 @@
 package flight.info.detroit;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class FlightBoard implements Comparable <FlightBoard>{
 

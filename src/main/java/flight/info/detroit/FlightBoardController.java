@@ -1,6 +1,7 @@
 package flight.info.detroit;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,27 +19,32 @@ public class FlightBoardController {
 
 	@RequestMapping("findflight")
 	public ModelAndView showFlightBoard() {
-		
-		ArrayList<FlightBoard> flightStatus = flightStatsApiServices.searchFlightCode();
-		
-		// times being compared for flightboard 
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
 
-		// add localdate time sortable departure time 	
-		for (int i = 0; i < flightStatus.size(); i ++ ) {
-		String departureTimeRaw = flightStatus.get(i).getDepartureDate().getDateLocal();
-		LocalDateTime departureTimeSortable = LocalDateTime.parse(departureTimeRaw, formatter);
-		flightStatus.get(i).setDepartureTimeSortable(departureTimeSortable);	
+		ArrayList<FlightBoard> flightStatus = flightStatsApiServices.searchFlightCode();
+
+		// times being compared for flightboard
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
+	//	DateTimeFormatter formatterAmPm = DateTimeFormatter.ofPattern("hh:mm a");
+		// add localdate time sortable departure time
+		for (int i = 0; i < flightStatus.size(); i++) {
+			String departureTimeRaw = flightStatus.get(i).getDepartureDate().getDateLocal();
+			LocalDateTime departureTimeSortable = LocalDateTime.parse(departureTimeRaw, formatter);
+			flightStatus.get(i).setDepartureTimeSortable(departureTimeSortable);
 		}
-		
-		System.out.println("before sort "+ flightStatus.toString());
-		
+		// sort by departure time 
 		Collections.sort(flightStatus);
 		
-		System.out.println("after sort "+ flightStatus.toString());
-		
+		// set human readable departure times after sorting
+		for (int i = 0; i < flightStatus.size(); i++) {
+			String departureTimeRaw = flightStatus.get(i).getDepartureDate().getDateLocal();
+			LocalTime departureTime = LocalTime.parse(departureTimeRaw, formatter);
+			String departureTimeFormatted = departureTime.format(DateTimeFormatter.ofPattern("hh:mm a"));
+			flightStatus.get(i).setDepartureTime(departureTimeFormatted);
+				
+		}
+
 		ModelAndView mav = new ModelAndView("flightboard", "flight", flightStatus);
-		
+
 		mav.addObject("airportInfo", flightStatsApiServices.searchAirportCode());
 		return mav;
 	}
