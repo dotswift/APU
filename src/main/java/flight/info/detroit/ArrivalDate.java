@@ -1,6 +1,6 @@
 package flight.info.detroit;
 
-public class ArrivalDate {
+public class ArrivalDate{
 	private String dateLocal;
 	private String dateUtc;
 
@@ -34,4 +34,6 @@ public class ArrivalDate {
 	public String toString() {
 		return "ArrivalDate [dateLocal=" + dateLocal + ", dateUtc=" + dateUtc + "]";
 	}
+
+
 }

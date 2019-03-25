@@ -6,36 +6,35 @@
 <head>
 <meta charset="UTF-8">
 <title>APU | Flight Board</title>
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="/style.css">
 </head>
-<body>
+
+<body id="bodytest">
+
 	<%@include file="partials/header.jsp"%>
-
-	<p>${ message }</p>
-
-	<table class="table table-hover">
+	<table class="table table-dark">
 
 		<thead>
 			<tr>
 
-				<th>Select A Flight</th>
-				<th >Departure Time</th>
-				<th >Origin</th>
-				<th >Airline </th>
-				<th >Flight Number</th>
+				<th>Calculate Pickup</th>
+				<th>Departure Time</th>
+				<th>Origin</th>
+				<th>Airline</th>
+				<th>Flight Number</th>
 
 			</tr>
 		</thead>
+
 		<tbody>
 			<c:forEach var="flight" items="${ flight }">
 				<tr>
-					<td><a class="btn btn-primary" href="flightcode?carr=${flight.carrierFsCode }&num=${flight.flightNumber }">Select</a></td>
+<td><a class="btn btn-secondary" href="flightcode?carr=${flight.carrierFsCode }&num=${flight.flightNumber }">Select</a></td>
 					<td>${flight.departureDate.dateLocal}</td>
 					<td>${flight.departureAirportFsCode }</td>
 					<td>${flight.carrierFsCode }</td>
 					<td>${flight.flightNumber }</td>
-				
-						</c:forEach>					
+			</c:forEach>
 	</table>
 </body>
 </html>

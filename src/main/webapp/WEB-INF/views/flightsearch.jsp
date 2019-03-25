@@ -35,9 +35,9 @@
 
 		<form action="/flightresults" style="text-align:center;">
 			<br>
-			<h1 class="display-4" style="text-align: center; color:#ffffff;">
+			<h4 class="display-4" style="text-size: 12px; text-align: center; color:#ffffff;">
 				
-					 Airport Pickup Utility(APU)</h1>
+					 Airport Pickup Utility(APU)</h4>
 					 <h6 style="color:#ffffff;"><b>Your Pathway to DTW</b></h6>
 					<br><br>
 					 
@@ -49,7 +49,7 @@
 						
 						
 						<br>
-<!-- 	<a href="findflight">Flight Board</a>  -->
+	<a href="findflight">Flight Board</a> 
 
 				</div>
 				<br>

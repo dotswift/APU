@@ -20,10 +20,14 @@ public class DepartureDate {
 	}
 
 	public String getDateLocal() {
-		String estimatedGateArrival = dateLocal;
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
-		LocalDateTime gateArrival = LocalDateTime.parse(estimatedGateArrival, formatter);
-		dateLocal = gateArrival.toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"));
+//		String estimatedGateArrival = dateLocal;
+//
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
+//
+//		LocalDateTime gateArrival = LocalDateTime.parse(estimatedGateArrival, formatter);
+//
+//		dateLocal = gateArrival.toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"));
+
 		return dateLocal;
 	}
 
@@ -32,7 +36,7 @@ public class DepartureDate {
 	}
 
 	public String getDateUtc() {
-		
+
 		return dateUtc;
 	}
 
