@@ -22,26 +22,34 @@ public class FlightBoardController {
 
 		ArrayList<FlightBoard> flightStatus = flightStatsApiServices.searchFlightCode();
 
-		// times being compared for flightboard
+		// formatter for sorting and filtering on flight board
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
-	//	DateTimeFormatter formatterAmPm = DateTimeFormatter.ofPattern("hh:mm a");
-		// add localdate time sortable departure time
+
+		// add localdatetime sortable departure time
 		for (int i = 0; i < flightStatus.size(); i++) {
 			String departureTimeRaw = flightStatus.get(i).getDepartureDate().getDateLocal();
 			LocalDateTime departureTimeSortable = LocalDateTime.parse(departureTimeRaw, formatter);
 			flightStatus.get(i).setDepartureTimeSortable(departureTimeSortable);
+
 		}
-		// sort by departure time 
+		// sort by departure time
 		Collections.sort(flightStatus);
 		
-		// set human readable departure times after sorting
+
+		// set human readable departure times after sorting and filtering
 		for (int i = 0; i < flightStatus.size(); i++) {
 			String departureTimeRaw = flightStatus.get(i).getDepartureDate().getDateLocal();
 			LocalTime departureTime = LocalTime.parse(departureTimeRaw, formatter);
 			String departureTimeFormatted = departureTime.format(DateTimeFormatter.ofPattern("hh:mm a"));
 			flightStatus.get(i).setDepartureTime(departureTimeFormatted);
-				
+
 		}
+		
+
+		// remove flights that have already arrived 
+		
+		
+	
 
 		ModelAndView mav = new ModelAndView("flightboard", "flight", flightStatus);
 

@@ -49,7 +49,9 @@
 						
 						
 						<br>
-	<a href="findflight">Flight Board</a> 
+						
+						
+	<a href="findflight" class="btn btn-secondary btn-lg" >Browse Flights</a> 
 
 				</div>
 				<br>
