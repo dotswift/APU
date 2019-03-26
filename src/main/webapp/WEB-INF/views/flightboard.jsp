@@ -20,7 +20,6 @@
 				<th>Airline</th>
 				<th>Flight Number</th>
 				<th>Departure Time</th>
-
 				<th>Calculate Pickup</th>
 
 			</tr>
@@ -50,13 +49,14 @@
 							<c:when test="${flight.carrierFsCode eq 'G7'}"> GoJet</c:when>
 							<c:when test="${flight.carrierFsCode eq '9E'}"> Delta Connection</c:when>
 							<c:when test="${flight.carrierFsCode eq 'OO'}"> Delta Connection</c:when>
+							<c:when test="${flight.carrierFsCode eq 'YX'}"> American</c:when>
+							<c:when test="${flight.carrierFsCode eq 'PDT'}"> American</c:when>
 							<c:otherwise>${flight.carrierFsCode}</c:otherwise>
 
 						</c:choose></td>
 					<td>${flight.flightNumber }</td>
 					<td><b>${flight.departureTime}</b></td>
-					<td><a class="btn btn-secondary"
-						href="flightcode?carr=${flight.carrierFsCode }&num=${flight.flightNumber }">Select</a></td>
+<td><a class="btn btn-secondary" href="flightcode?carr=${flight.carrierFsCode }&num=${flight.flightNumber }">Select</a></td>
 			</c:forEach>
 	</table>
 </body>

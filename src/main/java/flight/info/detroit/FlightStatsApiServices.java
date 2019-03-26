@@ -77,8 +77,15 @@ public class FlightStatsApiServices {
 
 		String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/tracks/DTW/arr" + "?appId="
 				+ appId + "&appKey=" + appKey + "&utc=false";
+		
+		
+		
 		AirlineCode response = restTemplateWithUserAgent.getForObject(url, AirlineCode.class);
-		return response.getFlightTracks();
+		
+		System.out.println("coming in from api" + response);
+		
+		
+		return response.getFlightBoard();
 	}
 
 	public ArrayList<Airports> searchAirportCode() {

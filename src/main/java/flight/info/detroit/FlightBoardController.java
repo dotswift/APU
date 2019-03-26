@@ -34,7 +34,6 @@ public class FlightBoardController {
 		}
 		// sort by departure time
 		Collections.sort(flightStatus);
-		
 
 		// set human readable departure times after sorting and filtering
 		for (int i = 0; i < flightStatus.size(); i++) {
@@ -44,11 +43,8 @@ public class FlightBoardController {
 			flightStatus.get(i).setDepartureTime(departureTimeFormatted);
 
 		}
-		
 
-		// remove flights that have already arrived 
-		
-		
+		// remove flights that have already departed
 	
 
 		ModelAndView mav = new ModelAndView("flightboard", "flight", flightStatus);

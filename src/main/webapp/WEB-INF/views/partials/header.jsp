@@ -20,7 +20,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 	<nav class= "navbar navbar-dark bg-dark">
 	<a href="/"><img src="/images/apu-logo.png" width="70" ></a>
 	
-<a class="navbar-item btn btn-secondary btn-sm" href="/flightlist">My Pickups</a>
+<a class="navbar-item btn btn-secondary btn-lg" href="/flightlist">My Pickups</a>
 
 	</nav>
     		

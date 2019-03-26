@@ -16,7 +16,7 @@ public class AirlineCode {
 		this.appendix = appendix;
 	}
 
-	public ArrayList<FlightBoard> getFlightTracks() {
+	public ArrayList<FlightBoard> getFlightBoard() {
 		return flightBoard;
 	}
 
