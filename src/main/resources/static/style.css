@@ -18,12 +18,13 @@ body {
 }
 
 #bodytest {
-	background-color: #000000;
+	background-color: #343a40;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
 	background-size: auto;
 	text-color: #ffffff;
+	font-size: 24px;
 
 }
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class AirlineCode {
 
-	private ArrayList<FlightBoard> flightTracks;
+	private ArrayList<FlightBoard> flightBoard;
 
 	private Appendix appendix;
 
@@ -17,16 +17,16 @@ public class AirlineCode {
 	}
 
 	public ArrayList<FlightBoard> getFlightTracks() {
-		return flightTracks;
+		return flightBoard;
 	}
 
-	public void setFlightTracks(ArrayList<FlightBoard> flightTracks) {
-		this.flightTracks = flightTracks;
+	public void setFlightTracks(ArrayList<FlightBoard> flightBoard) {
+		this.flightBoard = flightBoard;
 	}
 
 	@Override
 	public String toString() {
-		return "AirlineCode [flightTracks=" + flightTracks + appendix + "]";
+		return "AirlineCode [flightTracks=" + flightBoard + appendix + "]";
 	}
 
 }
