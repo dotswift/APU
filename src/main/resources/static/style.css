@@ -14,18 +14,16 @@ body {
 	font-size: 14px;
 	text-align: center;
 	text-color: #ffffff;
-
 }
 
 #bodytest {
-	background-color: #343a40;
 	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	background-size: auto;
 	text-color: #ffffff;
 	font-size: 24px;
-
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+	background-image: url("/images/apu-bg2.jpg");
 }
 
 /**
