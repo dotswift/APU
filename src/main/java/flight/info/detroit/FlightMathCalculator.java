@@ -205,13 +205,10 @@ public class FlightMathCalculator {
 	public static Long getProgressBarMetric(FlightStatus fs) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
 
-		// String driverDeparture = fs.getFmtDriverDepartureTime();
-
 		String pickupTime = fs.getFmtPickupTime();
 
-		// LocalTime driverDepartureFmt = LocalTime.parse(driverDeparture, formatter);
 		LocalTime currentTime = LocalTime.now();
-		System.out.println(currentTime);
+
 		LocalTime pickupTimeFmt = LocalTime.parse(pickupTime, formatter);
 
 		Long progressMetric = ChronoUnit.MINUTES.between(currentTime, pickupTimeFmt);
@@ -221,10 +218,9 @@ public class FlightMathCalculator {
 
 	// when TRUE is returned the pickup stage on TIMELINE should be checked
 	public static boolean PickupStageComplete(LocalDateTime time) {
-		//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+		// DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
 
 		LocalDateTime currentTime = LocalDateTime.now();
-		
 
 		return time.isBefore(currentTime);
 	}
@@ -244,6 +240,75 @@ public class FlightMathCalculator {
 			planeSizeAdjustment = planeSizeAdjustment + 15L;
 		}
 		return planeSizeAdjustment;
+	}
+	// check to see if aircraft is JUMBO JET or REGIONAL JET and include row number
+
+	public static Long checkPlaneSizeWithRow(FlightStatus fs, Long rowNumber) {
+
+		Long planeSizeAdjustment = 10L;
+
+		String planeSize = fs.getFlightEquipment().getScheduledEquipmentIataCode();
+		
+		  // small plane decrease in time
+		if (planeSize.equals("CR9") || planeSize.equals("CR7") || planeSize.equals("CRJ") || planeSize.equals("CR2")) {
+			planeSizeAdjustment = planeSizeAdjustment - 10L;
+	     
+		  // bigger planes	
+		} else if (planeSize.equals("333") || planeSize.equals("752") || planeSize.equals("753")) {
+			planeSizeAdjustment = planeSizeAdjustment + 10L;
+		
+		} // biggest planes
+		else if (planeSize.equals("359") || planeSize.equals("77W") || planeSize.equals("788")) {
+			planeSizeAdjustment = planeSizeAdjustment + 15L;
+		  
+			
+			
+			// medium planes
+		
+		} else if (planeSize.equals("A319PSEUDO") || planeSize.equals("A320PSEUDO")|| planeSize.equals("A321PSEUDO")) {
+
+			if (rowNumber < 10) {
+				planeSizeAdjustment = 5L;
+			} else if (rowNumber < 20) {
+				planeSizeAdjustment = 10L;
+			} else if (rowNumber <30) {
+				planeSizeAdjustment = 15L;
+			} else {
+				planeSizeAdjustment = 18L;
+			}
+		
+		} else if (planeSize.equals("73H")) {
+			
+			if (rowNumber < 10) {
+				planeSizeAdjustment = 5L;
+			} else if (rowNumber < 20) {
+				planeSizeAdjustment = 10L;
+			} else {
+				planeSizeAdjustment = 15L;
+			}
+
+		}
+		return planeSizeAdjustment;
+	}
+
+	// subtract disembarkment time for every row closer to front of plane IE 1A 20D
+	public static Long getAirplaneRow(FlightStatus fs) {
+
+		String seatAssignment = fs.getSeatAssignment();
+		String rowNumberS;
+
+		if (seatAssignment.matches("[A-z]")) {
+
+			rowNumberS = seatAssignment.substring(0, seatAssignment.length() - 1);
+
+		} else {
+
+			rowNumberS = seatAssignment;
+		}
+
+		Long rowNumber = Long.parseLong(rowNumberS);
+
+		return rowNumber;
 	}
 
 	public static Long checkGateWalkTime(FlightStatus fs) {

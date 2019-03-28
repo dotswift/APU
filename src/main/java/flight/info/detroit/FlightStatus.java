@@ -52,6 +52,7 @@ public class FlightStatus {
 	private String fmtPickupTime;
 	private String fmtGateArrival;
 	private String driverOrigin;
+	private String seatAssignment;
 	private boolean hasBags;
 
 	public FlightStatus() {
@@ -62,8 +63,8 @@ public class FlightStatus {
 			String departureAirportFsCode, String arrivalAirportFsCode, DepartureDate departureDate,
 			ArrivalDate arrivalDate, String status, OperationalTimes operationalTimes, FlightDurations flightDurations,
 			AirportResources airportResources, FlightEquipment flightEquipment, FlightMath flightMath,
-			Long driveDurationSec, LocalDateTime driverDeparture, String fmtDriverDepartureTime, String driverOrigin, String fmtGateArrival,
-			boolean hasBags) {
+			Long driveDurationSec, LocalDateTime driverDeparture, String fmtDriverDepartureTime, String driverOrigin,
+			String fmtGateArrival, boolean hasBags, String seatAssignment) {
 		super();
 		this.id = id;
 		this.flightId = flightId;
@@ -84,6 +85,7 @@ public class FlightStatus {
 		this.driverOrigin = driverOrigin;
 		this.fmtGateArrival = fmtGateArrival;
 		this.hasBags = hasBags;
+		this.seatAssignment = seatAssignment;
 	}
 
 	public FlightStatus(Long flightId, String carrierFsCode, Integer flightNumber, String departureAirportFsCode,
@@ -110,6 +112,18 @@ public class FlightStatus {
 		this.fmtDriverDepartureTime = fmtDriverDepartureTime;
 		this.driverOrigin = driverOrigin;
 		this.hasBags = hasBags;
+	}
+
+	public String getSeatAssignment() {
+		return seatAssignment;
+	}
+
+	public void setSeatAssignment(String seatAssignment) {
+		this.seatAssignment = seatAssignment;
+	}
+
+	public void setDriverOrigin(String driverOrigin) {
+		this.driverOrigin = driverOrigin;
 	}
 
 	public Long getId() {
@@ -271,7 +285,6 @@ public class FlightStatus {
 	public void setHasBags(boolean hasBags) {
 		this.hasBags = hasBags;
 	}
-	
 
 	public String getFmtPickupTime() {
 		return fmtPickupTime;
