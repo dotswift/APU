@@ -132,9 +132,9 @@ public class MyFlightController {
 		LocalDateTime timeAtDoorTimeline = FlightMathCalculator.getPickupTimeLdt(dur, driverDeptTime);
 
 		// compare to current time to see if this phase of the pickup is complete
-		boolean gateArrivalBool = FlightMathCalculator.PickupStageComplete(gateArrival);
-		boolean driverDepartureBool = FlightMathCalculator.PickupStageComplete(formattedDriverDeptTime);
-		boolean timeAtDoorBool = FlightMathCalculator.PickupStageComplete(timeAtDoor);
+		boolean gateArrivalBool = FlightMathCalculator.PickupStageComplete(gateArrivalTimeline);
+		boolean driverDepartureBool = FlightMathCalculator.PickupStageComplete(driverDeptTime);
+		boolean timeAtDoorBool = FlightMathCalculator.PickupStageComplete(timeAtDoorTimeline);
 
 		ArrayList<TimelinePoint> timeLineList = new ArrayList<TimelinePoint>();
 		TimelinePoint driverDepartureTime = new TimelinePoint("Driver Departure", driverDeptTime,
@@ -248,7 +248,7 @@ public class MyFlightController {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
 		
 		LocalDateTime gateArrivalTimeline = LocalDateTime.parse(estGateArrivalS, formatter);
-		LocalDateTime timeAtDoorTimeline = FlightMathCalculator.getPickupTimeLdt(durUpdated, driverDeptTime);		
+		LocalDateTime timeAtDoorTimeline = FlightMathCalculator.getPickupTimeLdt(durUpdated, driverDeptTime);	
 		// getting formatted time at door from Flight Math Calc
 		String timeAtDoor = FlightMathCalculator.getPickupTime(durUpdated, driverDeptTime);
 		String gateArrival = FlightMathCalculator.getFormattedGateArrival(flightStatusUpdated);
@@ -258,9 +258,9 @@ public class MyFlightController {
 	
 
 		// compare to current time to see if this phase of the pickup is complete
-		boolean gateArrivalBool = FlightMathCalculator.PickupStageComplete(gateArrival);
-		boolean driverDepartureBool = FlightMathCalculator.PickupStageComplete(formattedDriverDeptTime);
-		boolean timeAtDoorBool = FlightMathCalculator.PickupStageComplete(timeAtDoor);		
+		boolean gateArrivalBool = FlightMathCalculator.PickupStageComplete(gateArrivalTimeline);
+		boolean driverDepartureBool = FlightMathCalculator.PickupStageComplete(driverDeptTime);
+		boolean timeAtDoorBool = FlightMathCalculator.PickupStageComplete(timeAtDoorTimeline);		
 		
 
 		ArrayList<TimelinePoint> timeLineList = new ArrayList<TimelinePoint>();

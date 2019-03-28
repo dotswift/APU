@@ -220,13 +220,13 @@ public class FlightMathCalculator {
 	}
 
 	// when TRUE is returned the pickup stage on TIMELINE should be checked
-	public static boolean PickupStageComplete(String time) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+	public static boolean PickupStageComplete(LocalDateTime time) {
+		//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
 
-		LocalTime currentTime = LocalTime.now();
-		LocalTime timeMetric1 = LocalTime.parse(time, formatter);
+		LocalDateTime currentTime = LocalDateTime.now();
+		
 
-		return timeMetric1.isBefore(currentTime);
+		return time.isBefore(currentTime);
 	}
 
 	// check to see if aircraft is JUMBO JET or REGIONAL JET
