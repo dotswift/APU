@@ -41,7 +41,7 @@
 				<table width=500px style="text-align: right;">
 					<tr>
 						<td><input class="form-control col-form-label-lg"
-							name="flightcode" placeholder="Ex. DL2882" value="${flightNum}"
+							name="flightcode" placeholder="e.g. DL2882" value="${flightNum}"
 							size="45" min="4" maxlength="6" required
 							pattern="[A-Za-z0-9]{3}\d{2,4}" style="width: 200px;" /></td>
 
@@ -56,11 +56,12 @@
 					style="text-align: center; color: #ffffff;">Where does your
 					pickup originate from? </small> <br> <input
 					class="form-control col-form-label-lg" type="text" name="origin"
-					placeholder="Pickup Origin Address" style="width: 500px;" size=5
-					" required>
-				</td> <br>
-			</center>
-
+					placeholder="Pickup Origin Address" style="width: 500px;" size=3 >
+				 <br>
+	
+			
+					<h4 style="color: #ffffff;">Optional information for improved accuracy:</h4>
+<p>
 			<small id="emailHelp" style="text-align: center; color: #ffffff;">
 				Is your passenger checking bags?</small>
 			<div class="custom-control custom-switch">
@@ -71,16 +72,20 @@
 					class="custom-control-input" id="customSwitch1"> <label
 					class="custom-control-label" for="customSwitch1"><b
 					style="color: #ffffff; font-size: 120%;">Checked Bags?</b></label>
+			<p>
+			<small id="emailHelp" style="text-align: center; color: #ffffff;">
+				Do you know your passengers seat number?</small>
+	
+		<input class="form-control col-form-label-lg" type="text" name="seat"
+		placeholder="e.g. 20A" style="width: 100px;" min="2" maxlength="4" size=2>
 
-
-
-
-			</div>
+	</div>
 			<br> <input class="btn btn-secondary btn-lg" type="submit"
 				value="Calculate Pickup">
 		</form>
-		</center>
+		
 	</div>
+	</center>
 
 <br>
 <br>

@@ -249,6 +249,8 @@ public class FlightMathCalculator {
 
 		String planeSize = fs.getFlightEquipment().getScheduledEquipmentIataCode();
 		
+		System.out.println("Aircraft is: " + planeSize);
+		
 		  // small plane decrease in time
 		if (planeSize.equals("CR9") || planeSize.equals("CR7") || planeSize.equals("CRJ") || planeSize.equals("CR2") || 
 				planeSize.equals("M90")) {
@@ -263,8 +265,7 @@ public class FlightMathCalculator {
 			planeSizeAdjustment = planeSizeAdjustment + 15L;
 		  
 			
-			// medium planes Airbus
-		
+			// medium planes Airbus	
 		} else if (planeSize.equals("319") || planeSize.equals("32S")|| planeSize.equals("321") || planeSize.equals("320")) {
 
 			if (rowNumber < 10) {
@@ -277,8 +278,7 @@ public class FlightMathCalculator {
 				planeSizeAdjustment = 18L;
 			}
 			
-			// medium planes Boeing 
-		
+			// medium planes Boeing 	
 		} else if (planeSize.equals("73H") || planeSize.equals("739") || planeSize.equals("717")) {
 			
 			if (rowNumber < 10) {
@@ -293,10 +293,11 @@ public class FlightMathCalculator {
 		return planeSizeAdjustment;
 	}
 
-	// subtract disembarkment time for every row closer to front of plane IE 1A 20D
+	// extract the row number from a seatnumber string that is input by user
 	public static Long getAirplaneRow(FlightStatus fs) {
 
 		String seatAssignment = fs.getSeatAssignment();
+
 		String rowNumberS;
 
 		if (seatAssignment.matches("[A-z]")) {
@@ -308,6 +309,7 @@ public class FlightMathCalculator {
 			rowNumberS = seatAssignment;
 		}
 
+		
 		Long rowNumber = Long.parseLong(rowNumberS);
 
 		return rowNumber;

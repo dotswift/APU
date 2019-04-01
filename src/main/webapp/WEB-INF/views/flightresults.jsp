@@ -110,7 +110,7 @@
 					<a class="list-group-item list-group-item-action">
 						<div class="d-flex w-100 justify-content-between">
 							<h5 class="mb-1">Aircraft Size</h5>
-							<h4>20 minutes added</h4>
+							<h4>20 minutes</h4>
 						</div>
 						<p class="mb-1">The passenger is flying on a larger aircraft,
 							which can cause deplaning delays.</p>
@@ -123,7 +123,7 @@
 					<a class="list-group-item list-group-item-action">
 						<div class="d-flex w-100 justify-content-between">
 							<h5 class="mb-1">Aircraft Size</h5>
-							<small>25 minutes added</small>
+							<small>25 minutes</small>
 						</div>
 						<p class="mb-1">The passenger is flying on a wide-body
 							aircraft, which can cause significant deplaning delays.</p>
@@ -135,7 +135,7 @@
 					<a class="list-group-item list-group-item-action">
 						<div class="d-flex w-100 justify-content-between">
 							<h5 class="mb-1">Aircraft Size</h5>
-							<small>10 minutes added</small>
+							<small>${planesize} minutes</small>
 						</div>
 						<p class="mb-1">The passenger is flying on a medium-sized
 							aircraft, which can cause some deplaning delay.</p> 
@@ -200,7 +200,7 @@
 				<a class="list-group-item list-group-item-action">
 					<div class="d-flex w-100 justify-content-between">
 						<h5 class="mb-1">Checked Bags</h5>
-						<small>15 minutes added</small>
+						<small>15 minutes</small>
 					</div>
 					<p class="mb-1">The passenger has checked bags, which can cause
 						delays at baggage claim.</p>    
