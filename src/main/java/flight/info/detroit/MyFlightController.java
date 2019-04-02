@@ -36,7 +36,8 @@ public class MyFlightController {
 
 	@RequestMapping("/flightresults")
 	public ModelAndView showFlightResults(@RequestParam("flightcode") String flightCode,
-			@RequestParam("origin") String origin, @RequestParam(name = "bags", required = false) Boolean hasBags) {
+			@RequestParam("origin") String origin, @RequestParam(name = "bags", required = false) Boolean hasBags, 
+			@RequestParam("seat")String seatNumber) {
 
 		if (!(flightCode.matches("^[A-Za-z0-9]{2}\\d{1,4}$"))) {
 			ModelAndView mav = new ModelAndView("flightsearch");
@@ -81,11 +82,24 @@ public class MyFlightController {
 			flightstatus.setHasBags(false);
 			flightTripDao.updateFlight(flightstatus);
 		}
-
-		// JUMBO JET CHECK check if aircraft will add additional time or smaller jet decreases time
-		Long planeSizeAdjustment = FlightMathCalculator.checkPlaneSize(flightstatus);
+		Long planeSizeAdjustment;
+	
+		if (seatNumber == null) {
+			System.out.println("Seat assignment rejected!");
+			System.out.println("Seat number iz: " + seatNumber);
+		// JUMBO JET CHECK without seat number entered
+		/// check if aircraft will add additional time or smaller jet decreases time
+			planeSizeAdjustment = FlightMathCalculator.checkPlaneSize(flightstatus);
+		
+		} else {
+			System.out.println("seat number accepted! " + seatNumber);
+			flightstatus.setSeatAssignment(seatNumber);
+			Long rowNumber = FlightMathCalculator.getAirplaneRow(flightstatus);
+			planeSizeAdjustment = FlightMathCalculator.checkPlaneSizeWithRow(flightstatus, rowNumber);
+			
+		}
+		
 		// ARRIVAL GATE CHECK checks to see how far the walk from the gate to the curb
-
 		Long walkingTimeAdjustment = FlightMathCalculator.checkGateWalkTime(flightstatus);
 
 		driverDeptTime = driverDeptTime.plusMinutes(planeSizeAdjustment);
