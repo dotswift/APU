@@ -27,7 +27,8 @@ public class GoogleService {
 		params.put("code", code);
 		params.put("client_id", clientId);
 		params.put("client_secret", clientSecret);
-		params.put("redirect_uri", "oath2callback");
+		params.put("redirect_uri", "/oauth2callback");
+		params.put("grant_type", "authorization_code");
 		RestTemplate rest = new RestTemplate();
 		@SuppressWarnings("unchecked")
 		Map<String, String> response = rest.postForObject("https://www.googleapis.com/oauth2/v4/token", params,
