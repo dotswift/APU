@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
 <style>
 </style>
 
@@ -56,7 +57,7 @@
 					style="text-align: center; color: #ffffff;">Where does your
 					pickup originate from? </small> <br> <input
 					class="form-control col-form-label-lg" type="text" name="origin"
-					placeholder="Pickup Origin Address" style="width: 500px;" size=3 >
+					placeholder="Pickup Origin Address" style="width: 500px;" size=3 required>
 				 <br>
 	
 			
@@ -77,7 +78,7 @@
 				Do you know your passengers seat number?</small>
 	
 		<input class="form-control col-form-label-lg" type="text" name="seat"
-		placeholder="e.g. 20A" style="width: 100px;" min="2" maxlength="4" size=2>
+		pattern="[0-9]{1,2}[a-zA-Z]" placeholder="e.g. 20A" style="width: 100px;" min="2" maxlength="4" size=2>
 
 	</div>
 			<br> <input class="btn btn-secondary btn-lg" type="submit"

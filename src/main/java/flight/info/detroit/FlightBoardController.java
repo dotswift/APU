@@ -44,9 +44,6 @@ public class FlightBoardController {
 
 		}
 
-		// remove flights that have already departed
-	
-
 		ModelAndView mav = new ModelAndView("flightboard", "flight", flightStatus);
 
 		mav.addObject("airportInfo", flightStatsApiServices.searchAirportCode());

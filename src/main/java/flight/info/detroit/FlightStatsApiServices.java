@@ -75,18 +75,15 @@ public class FlightStatsApiServices {
 	public ArrayList<FlightBoard> searchFlightCode() {
 		// puts todays date in the URL as string
 		String today = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+		
+		System.out.println(today);
 
-// disabled to avoid reaching api limit for now 
-		String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/tracks/DTW/arr" + "?appId="
+		String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/tracks/dtw/arr/?appId="
 				+ appId + "&appKey=" + appKey + "&utc=false";
-		
-		
-		
+		System.out.println(url);
+			
 		AirlineCode response = restTemplateWithUserAgent.getForObject(url, AirlineCode.class);
-		
-		System.out.println("coming in from api" + response);
-		
-		
+				
 		return response.getFlightBoard();
 	}
 

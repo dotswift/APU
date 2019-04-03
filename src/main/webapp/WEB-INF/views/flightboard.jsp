@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
 <meta charset="UTF-8">
 <title>APU | Flight Board</title>
 <link rel="stylesheet" href="/style.css">

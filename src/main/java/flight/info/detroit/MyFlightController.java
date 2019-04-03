@@ -76,7 +76,6 @@ public class MyFlightController {
 			flightTripDao.updateFlight(flightstatus);
 
 		} else {
-
 			// storing the calculated departure time for driver / user with no checked bags
 			driverDeptTime = FlightMathCalculator.driverDepartureNoBags(flightstatus, dur);
 			flightstatus.setHasBags(false);
@@ -84,17 +83,15 @@ public class MyFlightController {
 		}
 		Long planeSizeAdjustment;
 	
-		if (seatNumber == null) {
+		if (seatNumber == "") {
 		// JUMBO JET CHECK without seat number entered
 		/// check if aircraft will add additional time or smaller jet decreases time
 			planeSizeAdjustment = FlightMathCalculator.checkPlaneSize(flightstatus);
 		
 		} else {
-			System.out.println("seat number accepted! " + seatNumber);
 			flightstatus.setSeatAssignment(seatNumber);
 			Long rowNumber = FlightMathCalculator.getAirplaneRow(flightstatus);
-			planeSizeAdjustment = FlightMathCalculator.checkPlaneSizeWithRow(flightstatus, rowNumber);
-			
+			planeSizeAdjustment = FlightMathCalculator.checkPlaneSizeWithRow(flightstatus, rowNumber);	
 		}
 		
 		// ARRIVAL GATE CHECK checks to see how far the walk from the gate to the curb

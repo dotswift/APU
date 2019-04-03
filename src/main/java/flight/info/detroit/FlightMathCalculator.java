@@ -378,7 +378,11 @@ public class FlightMathCalculator {
 				|| arrivalGate.equals("D28") || arrivalGate.equals("D30") || arrivalGate.equals("D32")) {
 			gateWalkAdjustment = gateWalkAdjustment + 8L;
 
-		} else {
+		} else if (arrivalGate.equals("A46")){
+			gateWalkAdjustment = 12L;
+		}
+		
+		else {
 
 			gateWalkAdjustment = 11L;
 		}
