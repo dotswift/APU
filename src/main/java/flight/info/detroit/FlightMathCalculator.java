@@ -249,21 +249,41 @@ public class FlightMathCalculator {
 
 		String planeSize = fs.getFlightEquipment().getScheduledEquipmentIataCode();
 		
-		System.out.println("Aircraft is: " + planeSize);
-		
 		  // small plane decrease in time
 		if (planeSize.equals("CR9") || planeSize.equals("CR7") || planeSize.equals("CRJ") || planeSize.equals("CR2") || 
 				planeSize.equals("M90")) {
-			planeSizeAdjustment = planeSizeAdjustment - 10L;
+			if (rowNumber < 10) {
+				planeSizeAdjustment = 5L;
+			} else {
+				planeSizeAdjustment = 10L;
+			}
 	     
 		  // bigger planes	
 		} else if (planeSize.equals("333") || planeSize.equals("752") || planeSize.equals("753")|| planeSize.equals("757")) {
-			planeSizeAdjustment = planeSizeAdjustment + 10L;
+			if (rowNumber < 10) {
+				planeSizeAdjustment = 5L;
+			} else if (rowNumber < 20) {
+				planeSizeAdjustment = 10L;
+			} else if (rowNumber < 30){
+				planeSizeAdjustment = 15L;
+			}	else {
+				planeSizeAdjustment = 18L;
+			}
+
 		
 		} // biggest planes
 		else if (planeSize.equals("359") || planeSize.equals("77W") || planeSize.equals("788")) {
-			planeSizeAdjustment = planeSizeAdjustment + 15L;
-		  
+			if (rowNumber < 10) {
+				planeSizeAdjustment = 5L;
+			} else if (rowNumber < 20) {
+				planeSizeAdjustment = 10L;
+			} else if (rowNumber < 30){
+				planeSizeAdjustment = 15L;
+			}	else {
+				planeSizeAdjustment = 18L;
+			}
+
+			
 			
 			// medium planes Airbus	
 		} else if (planeSize.equals("319") || planeSize.equals("32S")|| planeSize.equals("321") || planeSize.equals("320")) {
@@ -300,7 +320,7 @@ public class FlightMathCalculator {
 
 		String rowNumberS;
 
-		if (seatAssignment.matches("[A-z]")) {
+		if (seatAssignment.matches("[0-9]{2}[a-zA-Z]") || seatAssignment.matches("[0-9]{1}[a-zA-Z]")) {
 
 			rowNumberS = seatAssignment.substring(0, seatAssignment.length() - 1);
 

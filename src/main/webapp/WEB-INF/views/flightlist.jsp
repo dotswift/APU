@@ -49,7 +49,6 @@
 				<c:when test="${flights.carrierFsCode eq 'F9'}"> Frontier</c:when>
 				<c:when test="${flights.carrierFsCode eq 'AF'}"> Air France </c:when>
 				<c:when test="${flights.carrierFsCode eq 'RJ'}"> Royal Jordanian</c:when>
-				<c:when test="${flights.carrierFsCode eq 'WW'}"> WOW</c:when>
 				<c:when test="${flights.carrierFsCode eq 'G7'}"> GoJet</c:when>
 				<c:when test="${flights.carrierFsCode eq '9E'}"> Delta Connection</c:when>
 				<c:otherwise>${flights.carrierFsCode}</c:otherwise>

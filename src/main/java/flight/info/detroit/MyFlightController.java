@@ -85,8 +85,6 @@ public class MyFlightController {
 		Long planeSizeAdjustment;
 	
 		if (seatNumber == null) {
-			System.out.println("Seat assignment rejected!");
-			System.out.println("Seat number iz: " + seatNumber);
 		// JUMBO JET CHECK without seat number entered
 		/// check if aircraft will add additional time or smaller jet decreases time
 			planeSizeAdjustment = FlightMathCalculator.checkPlaneSize(flightstatus);
