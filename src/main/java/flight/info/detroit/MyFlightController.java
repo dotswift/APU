@@ -325,7 +325,9 @@ public class MyFlightController {
 	public ModelAndView showList() {
 
 		List<FlightStatus> listOfSearches = flightTripDao.findAll();
+
 		ModelAndView mav = new ModelAndView("flightlist", "flights", listOfSearches);
+
 		return mav;
 	}
 
